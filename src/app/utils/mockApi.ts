@@ -1,4 +1,3 @@
-// src/utils/mockApi.ts
 import { Todo } from '../store/todosSlice';
 
 let todos: Todo[] = [
@@ -7,7 +6,7 @@ let todos: Todo[] = [
   { id: crypto.randomUUID(), title: 'Implement dark mode', completed: false },
 ];
 
-// Simulate network delay helper
+// Simulate network delay helper`
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 // Get all todos
