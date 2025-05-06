@@ -1,4 +1,5 @@
 "use client";
+
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -46,7 +47,7 @@ export default function TodoForm() {
               errors.title ? "border-red-500" : ""
             }`}
             aria-invalid={errors.title ? "true" : "false"}
-            disabled={mutation.isLoading}
+            disabled={mutation.isPending}
             data-testid="todo-input"
           />
           {errors.title && (
@@ -58,10 +59,10 @@ export default function TodoForm() {
         <button
           type="submit"
           className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors"
-          disabled={mutation.isLoading || isSubmitting}
+          disabled={mutation.isPending || isSubmitting}
           data-testid="add-todo-button"
         >
-          {mutation.isLoading ? "Adding..." : "Add Todo"}
+          {mutation.isPending ? "Adding..." : "Add Todo"}
         </button>
       </div>
     </form>

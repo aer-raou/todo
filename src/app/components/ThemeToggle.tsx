@@ -1,4 +1,5 @@
 "use client";
+
 import { useTheme } from "../hooks/useTheme";
 
 export default function ThemeToggle() {
@@ -8,8 +9,8 @@ export default function ThemeToggle() {
     <button
       onClick={toggleTheme}
       className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-      aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-      title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+      aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+      title={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
       data-testid="theme-toggle"
     >
       {theme === "light" ? (

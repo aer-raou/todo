@@ -1,13 +1,13 @@
-import { Todo } from '../store/todosSlice';
+import { Todo } from "../store/todosSlice";
 
 let todos: Todo[] = [
-  { id: crypto.randomUUID(), title: 'Learn Next.js', completed: false },
-  { id: crypto.randomUUID(), title: 'Build a Todo App', completed: true },
-  { id: crypto.randomUUID(), title: 'Implement dark mode', completed: false },
+  { id: crypto.randomUUID(), title: "Learn Next.js", completed: false },
+  { id: crypto.randomUUID(), title: "Build a Todo App", completed: true },
+  { id: crypto.randomUUID(), title: "Implement dark mode", completed: false },
 ];
 
 // Simulate network delay helper`
-const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // Get all todos
 export const fetchTodos = async (): Promise<Todo[]> => {
@@ -28,7 +28,10 @@ export const createTodo = async (title: string): Promise<Todo> => {
 };
 
 // Update a todo
-export const updateTodoApi = async (id: string, updates: Partial<Todo>): Promise<Todo | null> => {
+export const updateTodoApi = async (
+  id: string,
+  updates: Partial<Todo>,
+): Promise<Todo | null> => {
   await delay(300);
   const todoIndex = todos.findIndex((t) => t.id === id);
   if (todoIndex !== -1) {
@@ -51,14 +54,18 @@ export const deleteCompletedTodosApi = async (): Promise<void> => {
 };
 
 // Mark all todos as complete or incomplete
-export const updateAllTodosApi = async (completed: boolean): Promise<Todo[]> => {
+export const updateAllTodosApi = async (
+  completed: boolean,
+): Promise<Todo[]> => {
   await delay(500);
   todos = todos.map((todo) => ({ ...todo, completed }));
   return todos;
 };
 
 // Batch update todos
-export const batchUpdateTodos = async (updates: { id: string; updates: Partial<Todo> }[]): Promise<void> => {
+export const batchUpdateTodos = async (
+  updates: { id: string; updates: Partial<Todo> }[],
+): Promise<void> => {
   await delay(500);
   updates.forEach(({ id, updates }) => {
     const todo = todos.find((t) => t.id === id);

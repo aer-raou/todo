@@ -8,7 +8,12 @@ interface TodoItemProps {
   onDelete: () => void;
 }
 
-export default function TodoItem({ id, title, completed, onToggle, onDelete }: TodoItemProps) {
+export default function TodoItem({
+  title,
+  completed,
+  onToggle,
+  onDelete,
+}: TodoItemProps) {
   return (
     <div className="flex justify-between items-center p-2 border-b">
       <div className="flex items-center flex-1">
@@ -18,10 +23,12 @@ export default function TodoItem({ id, title, completed, onToggle, onDelete }: T
           onChange={onToggle}
           className="mr-2 h-4 w-4"
         />
-        <span className={completed ? 'line-through text-gray-500' : ''}>{title}</span>
+        <span className={completed ? "line-through text-gray-500" : ""}>
+          {title}
+        </span>
       </div>
-      <button 
-        onClick={onDelete} 
+      <button
+        onClick={onDelete}
         className="text-red-500 hover:text-red-700 transition-colors"
         aria-label="Delete todo"
       >

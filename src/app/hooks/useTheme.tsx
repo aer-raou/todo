@@ -1,4 +1,5 @@
 "use client";
+
 import { createContext, useContext, useEffect, useState } from "react";
 
 type Theme = "light" | "dark";
@@ -18,10 +19,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setMounted(true);
     const root = window.document.documentElement;
     const savedTheme = localStorage.getItem("theme") as Theme | null;
-    
+
     // Remove any existing theme class
     root.classList.remove("light", "dark");
-    
+
     // Set initial theme
     if (savedTheme) {
       setTheme(savedTheme);
@@ -47,7 +48,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   const toggleTheme = () => {
     console.log("Toggling theme from:", theme);
-    setTheme(prevTheme => {
+    setTheme((prevTheme) => {
       const newTheme = prevTheme === "light" ? "dark" : "light";
       console.log("New theme will be:", newTheme);
       return newTheme;
