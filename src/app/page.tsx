@@ -1,9 +1,12 @@
+import TodoForm from './components/TodoForm';
+import TodoList from './components/TodoList';
 
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <h1 className="text-4xl font-bold">Todo App</h1>
+    <main className="bg-white w-[70%] dark:bg-gray-800 rounded-lg shadow-sm p-4 sm:p-6 transition-colors">
+      <TodoForm />
+      <TodoList />
     </main>
   );
 }
